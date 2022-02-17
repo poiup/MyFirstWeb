@@ -1,15 +1,16 @@
 
-<%@page import="java.sql.Connection"%>
-<%@page import="java.sql.DriverManager"%>
-<%@page import="java.sql.PreparedStatement"%>
-<%@page import="java.sql.ResultSet"%>
+<%@page import="kr.co.ict.UserDAO"%>
+<%@page import="kr.co.ict.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
 <%
 	request.setCharacterEncoding("UTF-8");
 	String uId = (String)session.getAttribute("login_uid");	
-
+	if(uId == null) {
+		response.sendRedirect("login_form.jsp");
+	}
+/*
 	//DB변수
 	String dbDriver = "com.mysql.cj.jdbc.Driver";
 	String dbUrl = "jdbc:mysql://localhost:3306/jdbcprac1";
@@ -42,6 +43,11 @@
 		out.println("오류");
 		e.printStackTrace();
 	}
+*/
+	UserDAO uDAO = new UserDAO();
+	UserVO userData = uDAO.userUpdateDAO(uId);
+	
+
 %>
 <!DOCTYPE html>
 <html>
@@ -75,8 +81,8 @@
 		<form action="update_check.jsp" method = "post">
 			<h4><%= uId %>님의 정보</h4>
 			<p><input type="password"  name = "newPw" placeholder = "비밀번호" required></p>
-			<p><input type="text" name = "newName" placeholder = "이름"  value=<%= uName %> required></p>
-			<p><input type="email" name = "newEmail" placeholder = "이메일" value=<%= uEmail %> required></p>
+			<p><input type="text" name = "newName" placeholder = "이름"  value=<%= userData.getuName() %> required></p>
+			<p><input type="email" name = "newEmail" placeholder = "이메일" value=<%= userData.getuEmail() %> required></p>
 			<input type="submit"  value = "정보 수정">
 		</form>
 		<button><a href ="welcome.jsp">돌아가기</a></button>

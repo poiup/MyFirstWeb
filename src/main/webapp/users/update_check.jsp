@@ -1,15 +1,11 @@
+<%@page import="kr.co.ict.UserDAO"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	request.setCharacterEncoding("UTF-8");
-	String uId = (String)session.getAttribute("login_uid");		
-	String newPw = request.getParameter("newPw");
-	String newName = request.getParameter("newName");
-	String newEmail = request.getParameter("newEmail");
-
+/*
 	//DB변수
 	String dbDriver = "com.mysql.cj.jdbc.Driver";
 	String dbUrl = "jdbc:mysql://localhost:3306/jdbcprac1";
@@ -39,6 +35,16 @@
 		e.printStackTrace();
 		out.println("오류");
 	}
+*/
+	request.setCharacterEncoding("UTF-8");
+	// 수정할 값들
+	String uId = (String)session.getAttribute("login_uid");		
+	String newPw = request.getParameter("newPw");
+	String newName = request.getParameter("newName");
+	String newEmail = request.getParameter("newEmail");
+	UserDAO uDAO = new UserDAO();
+	uDAO.userSetUpdateDAO(newName, newEmail, newPw, uId);
+	
 %>
 <!DOCTYPE html>
 <html>

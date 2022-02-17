@@ -49,9 +49,14 @@
 <body>
 	<div id="login_box">
 		<h1><%= uId %>님 로그인을 환영합니다!</h1>
+		<!-- 세션이 전부 삭제됩니다 -->
 		<button><a href="logout.jsp">로그아웃</a></button></br>
+		<!--  로그인되어있는 계정정보를 데이터베이스에서 삭제합니다 -->
 		<button><a href="member_out.jsp">회원 탈퇴</a></button>
+		<!-- 계정정보의 내용을 데이터베이스에서 수정합니다. -->
 		<button><a href="login_update.jsp">정보수정</a></button>
+		<!-- 데이터베이스에 존재하는 계정정보들을 전부 받아 표시합니다 -->
+		<button><a href="user_list2.jsp">회원 목록보기</a></button>
 	</div>
 </body>
 </html>

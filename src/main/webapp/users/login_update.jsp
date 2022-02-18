@@ -45,7 +45,7 @@
 	}
 */
 	UserDAO uDAO = new UserDAO();
-	UserVO userData = uDAO.userUpdateDAO(uId);
+	UserVO userData = uDAO.getUserData(uId);
 	
 
 %>

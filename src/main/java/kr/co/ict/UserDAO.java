@@ -71,7 +71,7 @@ public class UserDAO {
 	// login_update.jsp의 경우 로그인한 유저 한명의 데이터만 DB를 얻어옵니다.
 	// 따라서, 그 한명의 유저 데이터만 이용해 SELECT구문을 써야합니다.
 	// login_updadte.jsp상단의 변수에 들어있는 유저명을 이용해 유저데이터를 얻어옵니다.
-	public UserVO userUpdateDAO(String getId) throws SQLException{
+	public UserVO getUserData(String getId) throws SQLException{
 		// 접속로직은 getAllUserList()와 큰 차이가 없고 쿼리문에서만 차이납니다.
 		Connection con = null;
 		PreparedStatement pstmt = null;

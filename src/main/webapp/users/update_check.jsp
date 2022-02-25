@@ -42,7 +42,7 @@
 	String newPw = request.getParameter("newPw");
 	String newName = request.getParameter("newName");
 	String newEmail = request.getParameter("newEmail");
-	UserDAO uDAO = new UserDAO();
+	UserDAO uDAO = UserDAO.getInstance();
 	uDAO.userSetUpdateDAO(newName, newEmail, newPw, uId);
 	
 %>

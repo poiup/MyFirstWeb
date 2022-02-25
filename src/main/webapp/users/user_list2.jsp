@@ -61,7 +61,7 @@
 <%
 	// 모든 접속정보는 UserDAO 클래스 내에 있습니다.
 	// 따라서 UserDAO를 생성하는 것으로 접속정보 설정이 끝납니다.
-	UserDAO uDAO = new UserDAO();
+	UserDAO uDAO = UserDAO.getInstance();
 	//  dao내부에 userinfo테이블 전체의 데이터를 가져오는
 	// getAllUserList()를 호출하는것으로 필요데이터 적재가 끝납니다.
 	List<UserVO> userList = uDAO.getAllUserList();

@@ -68,7 +68,7 @@
 	String fPw = request.getParameter("fPw");
 	System.out.println(fId + fPw);
 	
-	UserDAO uDAO = new UserDAO();
+	UserDAO uDAO = UserDAO.getInstance();
 	UserVO userData = uDAO.getUserData(fId);
 	
 	if(userData.getuId() != null){

@@ -44,7 +44,7 @@
 		e.printStackTrace();
 	}
 */
-	UserDAO uDAO = new UserDAO();
+	UserDAO uDAO = UserDAO.getInstance();
 	UserVO userData = uDAO.getUserData(uId);
 	
 
